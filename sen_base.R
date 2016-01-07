@@ -252,6 +252,7 @@ do.state <- function(state) {
         grid.arrange(gg1, gg2, ncol = 2, top = textGrob(title, gp = gpar(fontface = "bold")))
         
         # Prettify totals data for top ten listing and print.
+        totals$contributor <- strtrim(totals$contributor, 60)
         totals$pct <- (totals$amount / sum(totals$amount)) * 100
         totals$pct <- sapply(totals$pct, pct, digits = 1)
         totals$amount <- sapply(totals$amount, money, digits = 0)
